@@ -1,5 +1,6 @@
 var timeLeft;
-
+var totalscore = 0
+var scoreQ1 = 0 
 
 function count (){
     if ( timeLeft > 0){
@@ -32,5 +33,25 @@ $("#start").on("click", function(){
     
 })
 
+console.log(scoreQ1)
 
+$("#q1b2").on("click", function (){
+    if (scoreQ1 < 1){
+    scoreQ1++;
+    console.log(scoreQ1)
+}
+})
+
+$("#q1b1").on("click", function (){
+    if (scoreQ1 > 0){
+    scoreQ1 = 0
+    console.log(scoreQ1)
+}
+})
+$("#q1b3").on("click", function (){
+    if (scoreQ1 < 1){
+    scoreQ1 = 0
+    console.log(scoreQ1)
+}
+})
 

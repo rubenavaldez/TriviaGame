@@ -6,3 +6,11 @@
 .center{
     margin: auto;
 }
+
+.row    {
+    margin-top: 15px;
+}
+
+.btn {
+    margin: 10px;
+}
