@@ -1,6 +1,5 @@
 var timeLeft;
 var totalscore = 0;
-var scoreQ1 = 0;
 var questionCount = 0;
 var runningTotal = [];
 
@@ -27,17 +26,26 @@ function startgame() {
 }
 
 function scrollQuestion() {
+   
     if (questionCount < (currentQuestion.length - 1)) {
         questionCount++;
         $("#question-number").text("Question " + (questionCount + 1));
+        setButtons(currentQuestion[questionCount]);
     } else {
         console.log("last question")
     }
-
+    
 }
 //*****enable when finished */
-// $('#Game').hide();
+$('#Game').hide();
 
+
+$(document).ready(function () {
+    console.log("ready!");
+    
+   
+    $("#image").hide();
+    
 
 
 
@@ -46,11 +54,11 @@ $("#start").on("click", function () {
     console.log("button works")
     $('#Game').show();
     $('#start').hide();
-
+    setButtons(currentQuestion[questionCount]);
 
 })
 
-console.log(scoreQ1)
+});
 
 
 question1 = {
@@ -73,7 +81,18 @@ question2 = {
     val3: 1
 }
 
-currentQuestion = [question1, question2]
+question3 = {
+    trivia: "What color is the sky?",
+    option1: "Blue",
+    val1: 1,
+    option2: "Red",
+    val2: 0,
+    option3: "Yellow",
+    val3: 0
+}
+
+
+currentQuestion = [question1, question2, question3]
 
 
 
@@ -101,7 +120,8 @@ $(".btn").on("click",function(){
     runningTotal.push(rightAnswer)
     console.log(runningTotal)
     scrollQuestion();
-    setButtons(currentQuestion[questionCount]);
+    
+    
 })
 
 // $('input[type=radio]').change(function () {
@@ -122,13 +142,7 @@ $(".btn").on("click",function(){
 
 // });
 
-$(document).ready(function () {
-    console.log("ready!");
-    setButtons(currentQuestion[questionCount]);
-    console.log(currentQuestion[questionCount]);
-    console.log($("#q1b2").val())
-    $("#image").hide();
-});
+
 // $("#q1b1").on("change", function (){
 //     if (scoreQ1 > 0){
 //     scoreQ1 = 0
