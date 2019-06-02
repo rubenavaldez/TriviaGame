@@ -87,35 +87,46 @@ function setButtons(arr) {
     $("#question-text").text(arr.trivia);
 
 }
-setButtons(currentQuestion[questionCount]);
+// setButtons(currentQuestion[questionCount]);
 
 function checkScore() {
 
 }
 
-
-
-$('input[type=radio]').change(function () {
+$(".btn").on("click",function(){
     console.log(this)
-
-    var rightAnswer = parseInt($("input[type='radio'][name='options']:checked").val());
+    
+    var rightAnswer = parseInt($(this).val());
     console.log(rightAnswer)
     runningTotal.push(rightAnswer)
     console.log(runningTotal)
-    $("input[type='radio'][name='options']:checked").attr('checked', false);
-
     scrollQuestion();
-    
     setButtons(currentQuestion[questionCount]);
+})
+
+// $('input[type=radio]').change(function () {
+//     console.log(this)
+
+//     var rightAnswer = parseInt($("input[type='radio'][name='options']:checked").val());
+//     console.log(rightAnswer)
+//     runningTotal.push(rightAnswer)
+//     console.log(runningTotal)
+    
+
+//     scrollQuestion();
+    
+//     setButtons(currentQuestion[questionCount]);
     
 
 
 
-});
+// });
 
 $(document).ready(function () {
     console.log("ready!");
-
+    setButtons(currentQuestion[questionCount]);
+    console.log(currentQuestion[questionCount]);
+    console.log($("#q1b2").val())
     $("#image").hide();
 });
 // $("#q1b1").on("change", function (){
