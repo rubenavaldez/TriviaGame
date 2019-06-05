@@ -4,6 +4,7 @@ var questionCount = 0;
 var runningTotal = [];
 
 
+
 //countdown function
 function count() {
     if (timeLeft > 0) {
@@ -31,6 +32,7 @@ function scrollQuestion() {
         questionCount++;
         $("#question-number").text("Question " + (questionCount + 1));
         setButtons(currentQuestion[questionCount]);
+        timeLeft = 15;
     } else {
         console.log("last question")
     }
@@ -64,35 +66,44 @@ $("#start").on("click", function () {
 question1 = {
     trivia: "What color is a fire truck?",
     option1: "Blue",
-    val1: 0,
+    val1: false,
     option2: "Red",
-    val2: 1,
+    val2: true,
     option3: "Yellow",
-    val3: 0
+    val3: false
 }
 
 question2 = {
     trivia: "What color is a banana?",
     option1: "Blue",
-    val1: 0,
+    val1: false,
     option2: "Red",
-    val2: 0,
+    val2: false,
     option3: "Yellow",
-    val3: 1
+    val3: true
 }
 
 question3 = {
     trivia: "What color is the sky?",
     option1: "Blue",
-    val1: 1,
+    val1: true,
     option2: "Red",
-    val2: 0,
+    val2: false,
     option3: "Yellow",
-    val3: 0
+    val3: false
 }
 
+question4 = {
+    trivia: "What color is grass?",
+    option1: "Green",
+    val1: true,
+    option2: "Orange",
+    val2: false,
+    option3: "Purple",
+    val3: false
+}
 
-currentQuestion = [question1, question2, question3]
+currentQuestion = [question1, question2, question3, question4]
 
 
 
@@ -107,6 +118,9 @@ function setButtons(arr) {
 
 }
 // setButtons(currentQuestion[questionCount]);
+function showImage(){
+    $("#image").show()
+}
 
 function checkScore() {
 
@@ -115,10 +129,14 @@ function checkScore() {
 $(".btn").on("click",function(){
     console.log(this)
     
-    var rightAnswer = parseInt($(this).val());
+    var rightAnswer = ($(this).val());
     console.log(rightAnswer)
     runningTotal.push(rightAnswer)
     console.log(runningTotal)
+    if(rightAnswer == false){
+      showImage()
+    }
+
     scrollQuestion();
     
     

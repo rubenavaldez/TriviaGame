@@ -12,5 +12,11 @@
 }
 
 .btn {
-    margin: 10px;
+    margin: 12px;
+    margin: auto;
+}
+
+
+#button-display {
+    margin: auto;
 }
