@@ -7,15 +7,21 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Trivia Game</title>
     <!-- reset CSS first -->
-        <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/reset.css">
     <!-- call jquery -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-   
-   
-   
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+
+
+
     <!-- call bootstrap -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 
 
 
@@ -34,55 +40,64 @@
         <div class="row text-center center">
             <h1 class="text-center center">Trivia Game</h1>
 
-        </div>
+    </div>
         <div class="row">
             <div class="col-md-2">
 
             </div>
             <div class="col-md-8">
-                <div id="countdown" class="text-center"> push start to play
+                <div id="countdown" class="text-center Game "> push start to play
                     <div class="row">
                         <button id="start" class="center">Start</button>
                     </div>
                 </div>
             </div>
         </div>
-        <div id="Game">
-        <div class="row">
-            <div class="col-md-4">
+        <div class ="Game" id="Game">
+            <div class="row">
+                <div class="col-md-4">
+
+                </div>
+                <div class="col-md-4">
+                    <h3 id="question-number" class="center text-center">Question 1</h3>
+                    <br>
+                    <p id="question-text" class="center text-center"> </p>
+                </div>
 
             </div>
-            <div class="col-md-4">
-                <h3 id="question-number" class="center text-center">Question 1</h3>
-                <br>
-                <p id="question-text" class="center text-center"> </p>
-            </div>
+            <div class="row">
+                <div class="col-md-4">
 
-        </div>  
-        <div class="row">
-            <div class="col-md-5">
+                </div>
+                <div class="col-md-4">
+                    <div id="button-display" class="container-fluid center-block text-center ">
+
+                        <button id="q1b1" type="button" class="btn btn-outline-secondary center"><label
+                                id="label1"></label></button>
+                        <button id="q1b2" type="button" class="btn btn-outline-secondary center"><label
+                                id="label2"></label></button>
+                        <button id="q1b3" type="button" class="btn btn-outline-secondary center"><label
+                                id="label3"></label></button>
+
+                    </div>
+                </div>
+                <div class="col-md-4">
+
+                </div>
+
 
             </div>
-            <div class="col-md-4">
-            <div id="button-display" class="container-fluid">
             
-                <button id="q1b1" type="button" class="btn btn-outline-secondary center"><label id="label1" ></label></button>
-                <button id="q1b2" type="button" class="btn btn-outline-secondary center"><label id="label2" ></label></button>
-                <button id="q1b3" type="button" class="btn btn-outline-secondary center"><label id="label3" ></label></button>
 
-            </div>
-            </div>
-            <div class="col-md-3">
 
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div id="image" class="center-block text-center">
+                    <img id="fail-image" src="assets/images/wronganswer.gif" alt="fail image">
+                </div>
             </div>
-           
-            
         </div>
-        </div>
-        
-        <div id="image">
-                <img src="assets/images/wronganswer.gif" alt="">
-    </div>
 
 
 
@@ -95,4 +110,5 @@
     </div>
     <script type="text/javascript" src="assets/javascript/app.js"></script>
 </body>
+
 </html>

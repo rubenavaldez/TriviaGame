@@ -12,11 +12,17 @@
 }
 
 .btn {
-    margin: 12px;
+    
     margin: auto;
 }
 
 
 #button-display {
+    margin: auto;
+}
+
+#image {
+    height: 400px;
+    width: 400px;
     margin: auto;
 }

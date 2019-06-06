@@ -2,7 +2,7 @@ var timeLeft;
 var totalscore = 0;
 var questionCount = 0;
 var runningTotal = [];
-
+var rightAnswer;
 
 
 //countdown function
@@ -27,8 +27,10 @@ function startgame() {
 }
 
 function scrollQuestion() {
-   
+        $(".Game").show()
+        $("#image").hide()
     if (questionCount < (currentQuestion.length - 1)) {
+        
         questionCount++;
         $("#question-number").text("Question " + (questionCount + 1));
         setButtons(currentQuestion[questionCount]);
@@ -39,12 +41,12 @@ function scrollQuestion() {
     
 }
 //*****enable when finished */
-$('#Game').hide();
+
 
 
 $(document).ready(function () {
     console.log("ready!");
-    
+    $("#Game").hide();
    
     $("#image").hide();
     
@@ -80,7 +82,8 @@ question2 = {
     option2: "Red",
     val2: false,
     option3: "Yellow",
-    val3: true
+    val3: true,
+    failImage: "assets/images/wronganswer.gif" 
 }
 
 question3 = {
@@ -90,7 +93,8 @@ question3 = {
     option2: "Red",
     val2: false,
     option3: "Yellow",
-    val3: false
+    val3: false,
+    failImage: "assets/images/wronganswer.gif" 
 }
 
 question4 = {
@@ -100,7 +104,9 @@ question4 = {
     option2: "Orange",
     val2: false,
     option3: "Purple",
-    val3: false
+    val3: false,
+    failImage: "assets/images/wronganswer.gif" 
+    
 }
 
 currentQuestion = [question1, question2, question3, question4]
@@ -115,29 +121,53 @@ function setButtons(arr) {
     $("#label3").text(arr.option3);
     $("#q1b3").val(arr.val3);
     $("#question-text").text(arr.trivia);
-
+    $("fail-image").attr("src", arr.failImage)
 }
 // setButtons(currentQuestion[questionCount]);
 function showImage(){
     $("#image").show()
+    timeLeft = 15;
 }
 
+
 function checkScore() {
+    
+    //   } else {  
+    //   alert("wrong")
+    //   $('#Game').hide();
+    //   setTimeout( showImage, 3000)
+    //   scrollQuestion();
 
 }
 
 $(".btn").on("click",function(){
     console.log(this)
     
-    var rightAnswer = ($(this).val());
-    console.log(rightAnswer)
-    runningTotal.push(rightAnswer)
-    console.log(runningTotal)
-    if(rightAnswer == false){
-      showImage()
+    //parseBoolean()   use this methos below to make it a boolean instead of a string
+    rightAnswer = ($(this).val());
+    console.log(rightAnswer === "true");
+    
+    if (rightAnswer === "true"){
+        scrollQuestion();
+    
+    } else {
+        $(".Game").hide()
+        $("#image").show()
+        
+        setTimeout(scrollQuestion, 5000)
     }
+    
+    // console.log(rightAnswer)
+    // runningTotal.push(rightAnswer)
+    // console.log(runningTotal)
+    
+    
+    // if(rightAnswer == true){
+    //    console.log("you are right")
+    // }
+        // scrollQuestion(); 
 
-    scrollQuestion();
+    
     
     
 })
