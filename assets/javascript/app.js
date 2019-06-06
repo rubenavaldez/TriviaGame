@@ -109,7 +109,18 @@ question4 = {
     
 }
 
-currentQuestion = [question1, question2, question3, question4]
+question5 = {
+    trivia: "What does John Snow know?",
+    option1: "Nothing",
+    val1: true,
+    option2: "Something",
+    val2: false,
+    option3: "Anything",
+    val3: false,
+    failImage: "assets/images/johnsnow.gif" 
+    
+}
+currentQuestion = [question1, question2, question3, question4, question5]
 
 
 
@@ -121,7 +132,8 @@ function setButtons(arr) {
     $("#label3").text(arr.option3);
     $("#q1b3").val(arr.val3);
     $("#question-text").text(arr.trivia);
-    $("fail-image").attr("src", arr.failImage)
+    $("#fail-image").attr("src", arr.failImage);
+    console.log(arr.failImage)
 }
 // setButtons(currentQuestion[questionCount]);
 function showImage(){
