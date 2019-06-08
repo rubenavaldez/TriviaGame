@@ -1,6 +1,13 @@
-.text-center {
+
+body {
+    background-image: url(../images/clouds.jpg);
+}
+.text-center, .btn {
     text-align: center;
-    color: red;
+    color: yellow;
+    -webkit-text-stroke: .8px navy; 
+    
+    font-weight: bold;
 }
 
 .center{
@@ -11,9 +18,14 @@
     margin-top: 15px;
 }
 
+#Game, #countdown, #score {
+    font-size: 24pt;
+}
+
 .btn {
-    
+    font-size: 18pt;
     margin: auto;
+    background-color: red;
 }
 
 
@@ -26,3 +38,4 @@
     width: 400px;
     margin: auto;
 }
+

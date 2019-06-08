@@ -3,7 +3,8 @@ var totalscore = 0;
 var questionCount = 0;
 var runningTotal = [];
 var rightAnswer;
-
+var incorrect = 0;
+var correct = 0;
 
 //countdown function
 function count() {
@@ -37,6 +38,11 @@ function scrollQuestion() {
         timeLeft = 15;
     } else {
         console.log("last question")
+        $(".Game").hide()
+        $("#image").hide()
+        $("#correct-total").text("Correct: " + correct)
+        $("#incorrect-total").text("Incorrect: " + incorrect)
+        $("#start-over").show()
     }
     
 }
@@ -47,7 +53,7 @@ function scrollQuestion() {
 $(document).ready(function () {
     console.log("ready!");
     $("#Game").hide();
-   
+    $("#start-over").hide();
     $("#image").hide();
     
 
@@ -66,24 +72,25 @@ $("#start").on("click", function () {
 
 
 question1 = {
-    trivia: "What color is a fire truck?",
+    trivia: "What color is a Bart's hat?",
     option1: "Blue",
     val1: false,
     option2: "Red",
     val2: true,
     option3: "Yellow",
-    val3: false
+    val3: false,
+    failImage: "assets/images/bart.gif"
 }
 
 question2 = {
-    trivia: "What color is a banana?",
-    option1: "Blue",
+    trivia: "What instrument does Lisa play?",
+    option1: "Tuba",
     val1: false,
-    option2: "Red",
+    option2: "Violin",
     val2: false,
-    option3: "Yellow",
+    option3: "Saxaphone",
     val3: true,
-    failImage: "assets/images/wronganswer.gif" 
+    failImage: "assets/images/lisa.gif" 
 }
 
 question3 = {
@@ -133,7 +140,7 @@ function setButtons(arr) {
     $("#q1b3").val(arr.val3);
     $("#question-text").text(arr.trivia);
     $("#fail-image").attr("src", arr.failImage);
-    console.log(arr.failImage)
+    
 }
 // setButtons(currentQuestion[questionCount]);
 function showImage(){
@@ -141,8 +148,17 @@ function showImage(){
     timeLeft = 15;
 }
 
+// function totalScore() {
+//     for (i = 0; i < runningTotal.length; i++ ){
+//         if(runningTotal[i] === "True"){
+//           correct++;  
+//         }else {
+//             incorrect++;
+        
+//     }
+//     }
 
-function checkScore() {
+// function checkScore() {
     
     //   } else {  
     //   alert("wrong")
@@ -150,7 +166,7 @@ function checkScore() {
     //   setTimeout( showImage, 3000)
     //   scrollQuestion();
 
-}
+// }
 
 $(".btn").on("click",function(){
     console.log(this)
@@ -161,29 +177,36 @@ $(".btn").on("click",function(){
     
     if (rightAnswer === "true"){
         scrollQuestion();
-    
+        correct++;
     } else {
         $(".Game").hide()
         $("#image").show()
-        
+        incorrect++;
         setTimeout(scrollQuestion, 5000)
     }
     
-    // console.log(rightAnswer)
-    // runningTotal.push(rightAnswer)
-    // console.log(runningTotal)
-    
-    
-    // if(rightAnswer == true){
-    //    console.log("you are right")
-    // }
-        // scrollQuestion(); 
-
-    
+  
+  
     
     
 })
-
+$("#start-over").on("click",
+function(){
+    
+     totalscore = 0;
+     questionCount = 1;
+     
+     incorrect = 0;
+     correct = 0;
+     questionCount = 0;
+     
+     $('#score').hide()
+     $('#Game').show();
+     $('#start').hide();
+     $("#start-over").hide()
+     setButtons(currentQuestion[questionCount]);
+     
+})
 // $('input[type=radio]').change(function () {
 //     console.log(this)
 
