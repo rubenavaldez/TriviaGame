@@ -6,6 +6,15 @@ var rightAnswer;
 var incorrect = 0;
 var correct = 0;
 
+var woohoo = document.createElement("audio");
+        woohoo.setAttribute("src", "assets/sounds/Woohoo.mp3");
+
+        var doh = document.createElement("audio");
+        doh.setAttribute("src", "assets/sounds/Doh.mp3");
+        
+        var smart = document.createElement("audio");
+        smart.setAttribute("src", "assets/sounds/smart.mp3");        
+
 //countdown function
 function count() {
     if (timeLeft > 0) {
@@ -37,6 +46,7 @@ function scrollQuestion() {
         setButtons(currentQuestion[questionCount]);
         timeLeft = 15;
     } else {
+        smart.play();
         console.log("last question")
         $(".Game").hide()
         $("#image").hide()
@@ -188,9 +198,11 @@ $(".btn").on("click",function(){
     console.log(rightAnswer === "true");
     
     if (rightAnswer === "true"){
+        woohoo.play()
         scrollQuestion();
         correct++;
     } else {
+        doh.play()
         $(".Game").hide()
         $("#image").show()
         incorrect++;
