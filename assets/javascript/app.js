@@ -17,7 +17,7 @@ var woohoo = document.createElement("audio");
 
 //countdown function
 function count() {
-    if (timeLeft > 0) {
+    if (timeLeft > 1) {
         timeLeft--;
         console.log(timeLeft)
         $("#countdown").html("You have " + timeLeft + " seconds left");
@@ -26,6 +26,7 @@ function count() {
         clearInterval(count)
         incorrect++
         scrollQuestion();
+
     }
 }
 
@@ -39,6 +40,7 @@ function startgame() {
 }
 $("#start-over").on("click",
 function(){
+    
     
      totalscore = 0;
      questionCount = 1;
@@ -59,6 +61,7 @@ function(){
 function scrollQuestion() {
         $(".Game").show()
         $("#image").hide()
+        $(".rightwrong").empty()
     if (questionCount < (currentQuestion.length - 1)) {
         
         questionCount++;
@@ -66,6 +69,7 @@ function scrollQuestion() {
         setButtons(currentQuestion[questionCount]);
         timeLeft = 15;
     } else {
+        timeLeft = 1000000;
         smart.play();
         // console.log("last question")
         $(".Game").hide()
@@ -74,6 +78,7 @@ function scrollQuestion() {
         $("#incorrect-total").text("Incorrect: " + incorrect)
         $("#start-over").show()
         $("#score").show()
+        
     }
     
 }
@@ -204,17 +209,18 @@ $(".btn").on("click",function(){
     
     if (rightAnswer === "true" ){
         woohoo.play()
-        scrollQuestion();
+        
         correct++;
+        $(".rightwrong").text("CORRECT!")
     } else {
         doh.play()
-        $(".Game").hide()
-        $("#image").show()
+        
         incorrect++;
-        setTimeout(scrollQuestion, 5000)
+        $(".rightwrong").text("NOPE!")
     }
-    
-  
+    $(".Game").hide()
+    $("#image").show()
+    setTimeout(scrollQuestion, 5000)
   
     
     
