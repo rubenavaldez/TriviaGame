@@ -24,6 +24,8 @@ function count() {
     } else {
         $("#countdown").html("Times up!");
         clearInterval(count)
+        incorrect++
+        scrollQuestion();
     }
 }
 
@@ -65,7 +67,7 @@ function scrollQuestion() {
         timeLeft = 15;
     } else {
         smart.play();
-        console.log("last question")
+        // console.log("last question")
         $(".Game").hide()
         $("#image").hide()
         $("#correct-total").text("Correct: " + correct)
@@ -200,7 +202,7 @@ $(".btn").on("click",function(){
     rightAnswer = ($(this).val());
     console.log(rightAnswer === "true");
     
-    if (rightAnswer === "true"){
+    if (rightAnswer === "true" ){
         woohoo.play()
         scrollQuestion();
         correct++;
@@ -217,6 +219,8 @@ $(".btn").on("click",function(){
     
     
 })
+
+
 
 // $('input[type=radio]').change(function () {
 
