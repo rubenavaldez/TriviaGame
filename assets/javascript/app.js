@@ -35,6 +35,24 @@ function startgame() {
     setInterval(count, 1000)
 
 }
+$("#start-over").on("click",
+function(){
+    
+     totalscore = 0;
+     questionCount = 1;
+     
+     incorrect = 0;
+     correct = 0;
+     questionCount = -1;
+     
+     $('#score').hide()
+     $('#Game').show();
+     $('#start').hide();
+     $("#start-over").hide()
+     scrollQuestion()
+     
+})
+
 
 function scrollQuestion() {
         $(".Game").show()
@@ -53,6 +71,7 @@ function scrollQuestion() {
         $("#correct-total").text("Correct: " + correct)
         $("#incorrect-total").text("Incorrect: " + incorrect)
         $("#start-over").show()
+        $("#score").show()
     }
     
 }
@@ -198,22 +217,6 @@ $(".btn").on("click",function(){
     
     
 })
-$("#start-over").on("click",
-function(){
-    
-     totalscore = 0;
-     questionCount = 1;
-     
-     incorrect = 0;
-     correct = 0;
-     questionCount = -1;
-     
-     $('#score').hide()
-     $('#Game').show();
-     $('#start').hide();
-     $("#start-over").hide()
-     scrollQuestion()
-     
-})
+
 // $('input[type=radio]').change(function () {
 
