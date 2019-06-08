@@ -5,6 +5,7 @@ var runningTotal = [];
 var rightAnswer;
 var incorrect = 0;
 var correct = 0;
+var interval;
 
 var woohoo = document.createElement("audio");
         woohoo.setAttribute("src", "assets/sounds/Woohoo.mp3");
@@ -23,25 +24,26 @@ function count() {
         $("#countdown").html("You have " + timeLeft + " seconds left");
     } else {
         $("#countdown").html("Times up!");
-        clearInterval(count)
+    
         incorrect++
         scrollQuestion();
 
     }
-}
+    }
 
 
 //startgame
 function startgame() {
     timeLeft = 15;
 
-    setInterval(count, 1000)
+    interval = setInterval(count, 1000)
 
 }
 $("#start-over").on("click",
 function(){
     
-    
+    timeLeft = 15;
+    interval = setInterval(count, 1000)
      totalscore = 0;
      questionCount = 1;
      
@@ -59,6 +61,7 @@ function(){
 
 
 function scrollQuestion() {
+        timeLeft = 15;
         $(".Game").show()
         $("#image").hide()
         $(".rightwrong").empty()
@@ -67,9 +70,10 @@ function scrollQuestion() {
         questionCount++;
         $("#question-number").text("Question " + (questionCount + 1));
         setButtons(currentQuestion[questionCount]);
-        timeLeft = 15;
+        
     } else {
-        timeLeft = 1000000;
+        clearInterval(interval);
+        timeLeft = 15;
         smart.play();
         // console.log("last question")
         $(".Game").hide()
