@@ -94,40 +94,52 @@ question2 = {
 }
 
 question3 = {
-    trivia: "What color is the sky?",
-    option1: "Blue",
+    trivia: "What talking animal did homer see in a hallucination?",
+    option1: "Coyote",
     val1: true,
-    option2: "Red",
+    option2: "Hippo",
     val2: false,
-    option3: "Yellow",
+    option3: "Turtle",
     val3: false,
-    failImage: "assets/images/wronganswer.gif" 
+    failImage: "assets/images/coyote.gif" 
 }
 
 question4 = {
-    trivia: "What color is grass?",
-    option1: "Green",
-    val1: true,
-    option2: "Orange",
-    val2: false,
-    option3: "Purple",
+    trivia: "Homer unwittingly worked for what super villain?",
+    option1: "Dr. No",
+    val1: false,
+    option2: "Hank Scorpio",
+    val2: true,
+    option3: "Lex Luther",
     val3: false,
-    failImage: "assets/images/wronganswer.gif" 
+    failImage: "assets/images/scorpio.gif" 
     
 }
 
 question5 = {
-    trivia: "What does John Snow know?",
-    option1: "Nothing",
-    val1: true,
-    option2: "Something",
+    trivia: "Bart took dance lessons, in what style?",
+    option1: "Hip Hop",
+    val1: false,
+    option2: "Tap",
     val2: false,
-    option3: "Anything",
-    val3: false,
-    failImage: "assets/images/johnsnow.gif" 
+    option3: "Ballet",
+    val3: true,
+    failImage: "assets/images/ballet.gif" 
     
 }
-currentQuestion = [question1, question2, question3, question4, question5]
+
+question6 = {
+    trivia: "What did Homer sell his soul for?",
+    option1: "Duff Beer",
+    val1: false,
+    option2: "A Donut",
+    val2: true,
+    option3: "Concert Tickets",
+    val3: false,
+    failImage: "assets/images/doughnut.gif" 
+    
+}
+currentQuestion = [question1, question2, question3, question4, question5, question6]
 
 
 
@@ -198,13 +210,13 @@ function(){
      
      incorrect = 0;
      correct = 0;
-     questionCount = 0;
+     questionCount = -1;
      
      $('#score').hide()
      $('#Game').show();
      $('#start').hide();
      $("#start-over").hide()
-     setButtons(currentQuestion[questionCount]);
+     scrollQuestion()
      
 })
 // $('input[type=radio]').change(function () {
