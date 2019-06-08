@@ -56,7 +56,7 @@ function scrollQuestion() {
     }
     
 }
-//*****enable when finished */
+
 
 
 
@@ -170,30 +170,14 @@ function showImage(){
     timeLeft = 15;
 }
 
-// function totalScore() {
-//     for (i = 0; i < runningTotal.length; i++ ){
-//         if(runningTotal[i] === "True"){
-//           correct++;  
-//         }else {
-//             incorrect++;
-        
-//     }
-//     }
 
-// function checkScore() {
-    
-    //   } else {  
-    //   alert("wrong")
-    //   $('#Game').hide();
-    //   setTimeout( showImage, 3000)
-    //   scrollQuestion();
 
-// }
+
 
 $(".btn").on("click",function(){
     console.log(this)
     
-    //parseBoolean()   use this methos below to make it a boolean instead of a string
+    //parseBoolean()   use this method below to make it a boolean instead of a string
     rightAnswer = ($(this).val());
     console.log(rightAnswer === "true");
     
@@ -232,45 +216,4 @@ function(){
      
 })
 // $('input[type=radio]').change(function () {
-//     console.log(this)
-
-//     var rightAnswer = parseInt($("input[type='radio'][name='options']:checked").val());
-//     console.log(rightAnswer)
-//     runningTotal.push(rightAnswer)
-//     console.log(runningTotal)
-    
-
-//     scrollQuestion();
-    
-//     setButtons(currentQuestion[questionCount]);
-    
-
-
-
-// });
-
-
-// $("#q1b1").on("change", function (){
-//     if (scoreQ1 > 0){
-//     scoreQ1 = 0
-//     console.log(scoreQ1)
-//     console.log('it')
-// }
-// })
-
-// $("#q1b2").button("click", function (){
-//     if (scoreQ1 < 1){
-//     scoreQ1++;
-//     console.log(scoreQ1)
-// }
-// })
-
-// $("#q1b3").on("click", function (){
-//     if (scoreQ1 < 1){
-//     scoreQ1 = 0
-//     console.log(scoreQ1)
-// }
-// })
-
-
 
